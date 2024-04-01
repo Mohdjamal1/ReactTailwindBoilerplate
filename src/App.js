@@ -1,4 +1,4 @@
-import DemoComponent from "./DemoComponent";
+import DemoComponent from "./Components/DemoComponent";
 
 
 function App() {
