@@ -1,10 +1,11 @@
-import DemoComponent from "./Components/DemoComponent";
-
+import Signup from "./Components/Signup";
+import UserForm from "./Components/UserForm";
 
 function App() {
   return (
     <div>
-   <DemoComponent />
+      <Signup />
+      {/* <UserForm /> */}
     </div>
   );
 }
