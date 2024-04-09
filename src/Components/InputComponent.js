@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const InputComponent = ({labelTxt,state,setState,type})=>{
 
@@ -15,12 +16,11 @@ const InputComponent = ({labelTxt,state,setState,type})=>{
   )
 }
 
-export const myLink = (props)=>{
+ const MyLink = (props)=>{
     return(
         <>
-            <a href="#" className="text-black underline dark:text-blue-500">{props.txt}</a>
+            <Link to="/terms" className="text-black underline">{props.txt}</Link>
         </>
     )
 }
-
-export default InputComponent;
+export {MyLink,InputComponent};

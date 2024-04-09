@@ -1,7 +1,7 @@
 // Signup.js
 import React, { useState } from "react";
-import InputComponent,{myLink} from "./InputComponent";
-import UserForm from "./UserForm";
+import { MyLink ,InputComponent} from "./InputComponent";
+import {useNavigate} from "react-router-dom";
 
 function Signup() {
 
@@ -10,6 +10,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [Error, setError] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +22,8 @@ function Signup() {
       confirmPassword.trim() !== ""
     ) {
       // localStorage.setItem("user", JSON.stringify(user));
-      
+      alert("User Created successfully");
+      navigate("/userForm");
     } else {
       alert("Please fill all the fields");
       setError("*This field is required");
@@ -61,14 +63,15 @@ function Signup() {
         {/* For checkbox */}
         <div className="mb-4">
           <input type="checkbox" className="w-10 mr-1" required />
-          <label className="text-gray-500">I agree to the <myLink txt="Terms of Use" /> and <myLink txt="Privacy Policy" /></label>
+          <label className="text-gray-500">I agree to the <MyLink txt="terms of use" /> and {<MyLink txt="Privacy Policy" />}</label>
         </div>
-      </form>
+      
         {/* For Button */}
-        <button type="submit" onClick={handleSubmit} className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white hover:bg-black/80">
+        <button type="submit" className="rounded-md bg-black sm:ml-14 lg:ml-36 px-3 py-2 text-sm font-semibold text-white hover:bg-black/80">
           Create Account
         </button>
-      <p>Already have an account?<a> Log In</a></p>
+        </form>
+      <p>Already have an account?<MyLink txt="Log in" /> </p>
     </div>
   );
 }
